@@ -5,6 +5,11 @@ pipeline {
       timestamps()
    }
     stages { 
+        stage('maven' {
+            steps {
+            sh './mvnw package'
+            }
+        }
         stage('Build') {
             steps {
                 sh 'docker-compose build'
