@@ -8,13 +8,14 @@ pipeline {
         stage('Test'){
             steps{
                 sh './mvnw package'
+
+                }        
                 post{
                     always{
                         junit allowEmptyResults: true, keepLongStdio: true, testResults: 'target/surefire-reports/*xml'
                     }
-                }
-            }
 
+            }        
         }
         stage('Build') {
             steps {
