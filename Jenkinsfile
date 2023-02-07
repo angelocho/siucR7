@@ -4,15 +4,10 @@ pipeline {
       ansiColor('css')
       timestamps()
    }
-    stages { 
-        stage('maven') {
-            steps {
-            sh './mvnw package'
-            }
-        }
         stage('Build') {
             steps {
-                sh 'docker-compose build'
+                sh '''docker-compose build
+                ./mvnw package'''
             }
         }
         post{
