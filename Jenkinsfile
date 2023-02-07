@@ -7,6 +7,7 @@ pipeline {
     stages { 
         stage('Test'){
             steps{
+                sh './mvnw package'
                 post{
                     always{
                         junit allowEmptyResults: true, keepLongStdio: true, testResults: 'target/surefire-reports/*xml'
@@ -17,8 +18,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh '''docker-compose build
-                ./mvnw package'''
+                sh 'docker-compose build'
             }        
         }
         stage('Start') {
