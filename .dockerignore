@@ -1,2 +1,5 @@
+# Ignorar todos los archivos y directorios
 *
+
+# Incluir archivo específico
 !target/testing-web-complete-0.0.1-SNAPSHOT.jar
