@@ -5,7 +5,7 @@ pipeline {
       timestamps()
    }
     stages { 
-        stage('maven' {
+        stage('maven') {
             steps {
             sh './mvnw package'
             }
