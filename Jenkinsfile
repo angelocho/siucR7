@@ -15,6 +15,11 @@ pipeline {
                 sh 'docker-compose build'
             }
         }
+        post{
+            always{
+                junit allowEmptyResults: true, keepLongStdio: true, testResults: 'target/surefire-reports/*xml'
+            }
+        }
         stage('Start') {
             steps {
                 sh 'docker-compose up -d'
@@ -22,3 +27,4 @@ pipeline {
         }
     } 
 }
+
