@@ -6,11 +6,14 @@ pipeline {
    }
     stages { 
         stage('Test'){
-            post{
-                always{
-                    junit allowEmptyResults: true, keepLongStdio: true, testResults: 'target/surefire-reports/*xml'
+            steps{
+                post{
+                    always{
+                        junit allowEmptyResults: true, keepLongStdio: true, testResults: 'target/surefire-reports/*xml'
+                    }
                 }
             }
+
         }
         stage('Build') {
             steps {
