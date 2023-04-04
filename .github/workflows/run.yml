@@ -1,0 +1,19 @@
+name: Run Workflow
+
+on:
+  workflow_run:
+    workflows: ["Build Workflow"]
+    types:
+      - completed
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    # Añade los pasos necesarios para ejecutar la aplicación.
+    # Por ejemplo, si es una aplicación web, puedes usar un servidor local o un contenedor Docker.
+ Por ejemplo, si es una aplicación web, puedes usar un servidor local o un contenedor Docker.
