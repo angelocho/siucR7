@@ -60,6 +60,8 @@ jobs:
         echo "$PRIVATE_KEY" > private_key.pem
         chmod 600 private_key.pem
         scp -o StrictHostKeyChecking=no -i private_key.pem -r ./docker-compose.yaml $USER@$HOST:/home/ec2-user
+        scp -o StrictHostKeyChecking=no -i private_key.pem -r ./target/testing-web-complete-0.0.1-SNAPSHOT.jar $USER@$HOST:/home/ec2-user
+        scp -o StrictHostKeyChecking=no -i private_key.pem -r ./Dockerfile $USER@$HOST:/home/ec2-user
         ssh -o StrictHostKeyChecking=no -i private_key.pem $USER@$HOST << 'EOF'
           cd /path/to/your/project
           docker-compose build
