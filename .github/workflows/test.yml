@@ -7,7 +7,6 @@
 # documentation.
 
 name: Test Workflow
-
 on:
   push:
     branches: [ "main" ]
