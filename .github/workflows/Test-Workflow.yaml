@@ -51,6 +51,8 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
     - name: Deploy
-      run: 
-          docker-compose build &&
+      run: |
+       << 'EOF'
+          docker-compose build
           docker-compose up -d
+        EOF
