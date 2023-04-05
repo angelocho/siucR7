@@ -30,7 +30,7 @@ jobs:
         path: target/surefire-reports/*.xml
         
   build:
-    runs-on: ubuntu-latest
+    runs-on: AngelDesktop
     needs: test
     steps:
     - name: Checkout repository
